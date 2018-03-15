@@ -1,0 +1,45 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "progressivo",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numeroOrdine",
+            "fieldType": "Long"
+        },
+        {
+            "fieldName": "dataOrdine",
+            "fieldType": "LocalDate"
+        },
+        {
+            "fieldName": "pagamentoEffettivo",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "totaleCompensare",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "totaleCompentato",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "statoOrdine",
+            "fieldType": "StatoOrdine",
+            "fieldValues": "ATTESA_PAGAMENTO,PAGATO,SPEDITO"
+        }
+    ],
+    "changelogDate": "20180315205431",
+    "entityTableName": "lista",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "scontiMatti"
+}

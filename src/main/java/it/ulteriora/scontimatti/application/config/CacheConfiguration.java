@@ -42,6 +42,7 @@ public class CacheConfiguration {
             cm.createCache(it.ulteriora.scontimatti.application.domain.User.class.getName(), jcacheConfiguration);
             cm.createCache(it.ulteriora.scontimatti.application.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(it.ulteriora.scontimatti.application.domain.User.class.getName() + ".authorities", jcacheConfiguration);
+            cm.createCache(it.ulteriora.scontimatti.application.domain.Lista.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

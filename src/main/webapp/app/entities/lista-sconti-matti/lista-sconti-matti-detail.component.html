@@ -1,0 +1,50 @@
+
+<div *ngIf="lista">
+    <h2><span>Lista</span> {{lista.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Progressivo</span></dt>
+        <dd>
+            <span>{{lista.progressivo}}</span>
+        </dd>
+        <dt><span>Numero Ordine</span></dt>
+        <dd>
+            <span>{{lista.numeroOrdine}}</span>
+        </dd>
+        <dt><span>Data Ordine</span></dt>
+        <dd>
+            <span>{{lista.dataOrdine | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Pagamento Effettivo</span></dt>
+        <dd>
+            <span>{{lista.pagamentoEffettivo}}</span>
+        </dd>
+        <dt><span>Totale Compensare</span></dt>
+        <dd>
+            <span>{{lista.totaleCompensare}}</span>
+        </dd>
+        <dt><span>Totale Compentato</span></dt>
+        <dd>
+            <span>{{lista.totaleCompentato}}</span>
+        </dd>
+        <dt><span>Stato Ordine</span></dt>
+        <dd>
+            <span>{{lista.statoOrdine}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'lista-sconti-matti/'+ lista.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>
