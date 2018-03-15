@@ -1,0 +1,14 @@
+version: '2'
+services:
+    scontimatti-app:
+        image: scontimatti
+        environment:
+            - SPRING_PROFILES_ACTIVE=prod,swagger
+            - SPRING_DATASOURCE_URL=jdbc:mysql://scontimatti-mysql:3306/scontimatti?useUnicode=true&characterEncoding=utf8&useSSL=false
+            - JHIPSTER_SLEEP=10 # gives time for the database to boot before the application
+        ports:
+            - 8080:8080
+    scontimatti-mysql:
+        extends:
+            file: mysql.yml
+            service: scontimatti-mysql
