@@ -4,7 +4,7 @@ entity Ordine {
     dataOrdine LocalDate required,
     pagamentoEffettivo BigDecimal required,
     totaleCompensare BigDecimal,
-    totaleCompentato BigDecimal,
+    totaleCompensato BigDecimal,
     statoOrdine StatoOrdine required
 }
 
@@ -12,7 +12,7 @@ enum StatoOrdine {
 	ATTESA_PAGAMENTO,PAGATO,SPEDITO
 }
 // Set pagination options
-paginate Lista with pagination
+paginate Ordine with pagination
 
 dto * with mapstruct
 
