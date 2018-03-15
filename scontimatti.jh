@@ -1,11 +1,11 @@
-entity Lista {
+entity Ordine {
 	progressivo Long required ,
-    numeroOrdine Long,
-    dataOrdine LocalDate,
-    pagamentoEffettivo BigDecimal,
+    numeroOrdine Long required,
+    dataOrdine LocalDate required,
+    pagamentoEffettivo BigDecimal required,
     totaleCompensare BigDecimal,
     totaleCompentato BigDecimal,
-    statoOrdine StatoOrdine
+    statoOrdine StatoOrdine required
 }
 
 enum StatoOrdine {
