@@ -1,11 +1,13 @@
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { ScontimattiListaScontiMattiModule } from './lista-sconti-matti/lista-sconti-matti.module';
+import { ScontimattiOrdineScontiMattiModule } from './ordine-sconti-matti/ordine-sconti-matti.module';
 /* jhipster-needle-add-entity-module-import - JHipster will add entity modules imports here */
 
 @NgModule({
     imports: [
         ScontimattiListaScontiMattiModule,
+        ScontimattiOrdineScontiMattiModule,
         /* jhipster-needle-add-entity-module - JHipster will add entity modules here */
     ],
     declarations: [],
