@@ -1,0 +1,78 @@
+<div>
+    <h2>
+        <span>Ordines</span>
+        <button class="btn btn-primary float-right jh-create-entity create-ordine-sconti-matti" [routerLink]="['/', { outlets: { popup: ['ordine-sconti-matti-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span >
+            Create new Ordine
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="ordines">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span>ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="progressivo"><span>Progressivo</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="numeroOrdine"><span>Numero Ordine</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="dataOrdine"><span>Data Ordine</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="pagamentoEffettivo"><span>Pagamento Effettivo</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="totaleCompensare"><span>Totale Compensare</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="totaleCompensato"><span>Totale Compensato</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="statoOrdine"><span>Stato Ordine</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let ordine of ordines ;trackBy: trackId">
+                <td><a [routerLink]="['../ordine-sconti-matti', ordine.id ]">{{ordine.id}}</a></td>
+                <td>{{ordine.progressivo}}</td>
+                <td>{{ordine.numeroOrdine}}</td>
+                <td>{{ordine.dataOrdine | date:'mediumDate'}}</td>
+                <td>{{ordine.pagamentoEffettivo}}</td>
+                <td>{{ordine.totaleCompensare}}</td>
+                <td>{{ordine.totaleCompensato}}</td>
+                <td>{{ordine.statoOrdine}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../ordine-sconti-matti', ordine.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'ordine-sconti-matti/'+ ordine.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'ordine-sconti-matti/'+ ordine.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="ordines && ordines.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

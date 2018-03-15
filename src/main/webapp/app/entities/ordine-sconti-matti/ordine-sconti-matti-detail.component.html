@@ -1,0 +1,50 @@
+
+<div *ngIf="ordine">
+    <h2><span>Ordine</span> {{ordine.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Progressivo</span></dt>
+        <dd>
+            <span>{{ordine.progressivo}}</span>
+        </dd>
+        <dt><span>Numero Ordine</span></dt>
+        <dd>
+            <span>{{ordine.numeroOrdine}}</span>
+        </dd>
+        <dt><span>Data Ordine</span></dt>
+        <dd>
+            <span>{{ordine.dataOrdine | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Pagamento Effettivo</span></dt>
+        <dd>
+            <span>{{ordine.pagamentoEffettivo}}</span>
+        </dd>
+        <dt><span>Totale Compensare</span></dt>
+        <dd>
+            <span>{{ordine.totaleCompensare}}</span>
+        </dd>
+        <dt><span>Totale Compensato</span></dt>
+        <dd>
+            <span>{{ordine.totaleCompensato}}</span>
+        </dd>
+        <dt><span>Stato Ordine</span></dt>
+        <dd>
+            <span>{{ordine.statoOrdine}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'ordine-sconti-matti/'+ ordine.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>
