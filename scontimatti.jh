@@ -1,7 +1,7 @@
 entity Lista {
 	progressivo Long required ,
     numeroOrdine Long,
-    dataOrdine Date,
+    dataOrdine LocalDate,
     pagamentoEffettivo BigDecimal,
     totaleCompensare BigDecimal,
     totaleCompentato BigDecimal,
