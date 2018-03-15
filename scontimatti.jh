@@ -1,0 +1,22 @@
+entity Lista {
+	progressivo Long required ,
+    numeroOrdine Long,
+    dataOrdine Date,
+    pagamentoEffettivo BigDecimal,
+    totaleCompensare BigDecimal,
+    totaleCompentato BigDecimal,
+    statoOrdine StatoOrdine
+}
+
+enum StatoOrdine {
+	ATTESA_PAGAMENTO,PAGATO,SPEDITO
+}
+// Set pagination options
+paginate Lista with pagination
+
+dto * with mapstruct
+
+// Set service options to all except few
+service all with serviceImpl
+// Set an angular suffix
+angularSuffix * with scontiMatti
