@@ -1,0 +1,57 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "progressivo",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "numeroOrdine",
+            "fieldType": "Long",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "dataOrdine",
+            "fieldType": "LocalDate",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "pagamentoEffettivo",
+            "fieldType": "BigDecimal",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "totaleCompensare",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "totaleCompensato",
+            "fieldType": "BigDecimal"
+        },
+        {
+            "fieldName": "statoOrdine",
+            "fieldType": "StatoOrdine",
+            "fieldValues": "ATTESA_PAGAMENTO,PAGATO,SPEDITO",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180315213723",
+    "entityTableName": "ordine",
+    "dto": "mapstruct",
+    "pagination": "pagination",
+    "service": "serviceImpl",
+    "jpaMetamodelFiltering": false,
+    "angularJSSuffix": "scontiMatti"
+}
